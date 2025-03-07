@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Wedding 1",
+        "date": "2021-01-01",
+        "location": "New Delhi",
+        "description": "Description 1",
+        "image": "https://tse2.mm.bing.net/th?id=OIP.66Q6Ny05fAwVCs5nBgzv9wHaE8&pid=Api&P=0&h=180"
+    },
+    {
+        "id": 2,
+        "name": "Wedding 2",
+        "date": "2021-01-02",
+        "location": "New Delhi",
+        "description": "Description 2",
+        "image": "https://www.shaadidukaan.com/vogue/wp-content/uploads/2020/03/engagement-stage-decor.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Wedding 3",
+        "date": "2021-01-03",
+        "location": "New Delhi",
+        "description": "Description 3",
+        "image": "https://i.pinimg.com/originals/13/b3/24/13b32474b79279e1d08b4426012deaa9.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Wedding 4",
+        "date": "2021-01-04",
+        "location": "New Delhi",
+        "description": "Description 4",
+        "image": "https://tse4.mm.bing.net/th?id=OIP.3O3KEWRQw7-iB-Z3TT8FFQHaEK&pid=Api&P=0&h=180"
+    },
+    {
+        "id": 5,
+        "name": "Wedding 5",
+        "date": "2021-01-05",
+        "location": "New Delhi",
+        "description": "Description 5",
+        "image": "https://i.pinimg.com/originals/c8/10/2a/c8102a31a4da615d2cab287a702d227c.jpg"
+    }
+]
