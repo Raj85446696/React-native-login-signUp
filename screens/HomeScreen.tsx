@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { View, Image, TextInput, StyleSheet, Alert, TouchableOpacity, Text, ScrollView, FlatList } from "react-native";
 import * as Location from "expo-location";
-import { Ionicons } from "@expo/vector-icons";
-import data from "../data.json"; // Assuming data is in this file
+import data from "../data.json";
+import Home from "../components/Home"; 
 
 const App = () => {
   const [location, setLocation] = useState("");
@@ -37,59 +37,8 @@ const App = () => {
 
   return (
     <>
-      {/* Nav-bar Start */}
-      <View style={styles.container}>
-        <Image source={require("../assets/user.jpeg")} style={styles.image} />
-        <TextInput
-          style={styles.input}
-          value={location}
-          placeholder="Fetching location..."
-          editable={false}
-        />
-        <TouchableOpacity style={styles.iconContainer} onPress={() => alert("Notification worked Properly...")}>
-          <Ionicons name="notifications-outline" size={25} color="black" />
-          <View style={styles.badge}>
-            <Text style={styles.badgeText}>+1</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => alert("Profile worked Properly...")}>
-          <Ionicons name={"person-outline"} size={25} color={'black'} style={styles.icons} />
-        </TouchableOpacity>
-      </View>
-      {/* Nav-bar End */}
-
-      {/* Category Start */}
-      <View style={styles.category}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <View style={styles.item}>
-            <Ionicons name="trending-up-outline" size={20} color="blue" />
-            <Text style={styles.text}>Top Charts</Text>
-          </View>
-
-          <View style={styles.item}>
-            <Ionicons name="eye-outline" size={20} color="red" />
-            <Text style={styles.text}>For you</Text>
-          </View>
-
-          <View style={styles.item}>
-            <Ionicons name="diamond-outline" size={20} color="green" />
-            <Text style={styles.text}>Premiums</Text>
-          </View>
-
-          <View style={styles.item}>
-            <Ionicons name="film-outline" size={20} color="purple" />
-            <Text style={styles.text}>Offers</Text>
-          </View>
-
-          <View style={styles.item}>
-            <Ionicons name="book-outline" size={20} color="orange" />
-            <Text style={styles.text}>Categories</Text>
-          </View>
-        </ScrollView>
-      </View>
-      {/* Category End */}
-
+    <ScrollView showsVerticalScrollIndicator={false}>
+     <Home/>
       {/* For Wedding */}
       <View style={styles.item}>
       <Text style={styles.texts}>Wedding 💑</Text>
@@ -113,6 +62,7 @@ const App = () => {
           showsHorizontalScrollIndicator={false}
         />
       </View>
+      
 
       <View style={styles.item}>
       <Text style={styles.texts}>Engagement 💍</Text>
@@ -186,7 +136,30 @@ const App = () => {
         />
       </View>
 
-      
+      <View style={styles.item}>
+      <Text style={styles.texts}>Cultural Events 🎭</Text>   
+          </View>
+      <View style={styles.containers}>
+        <FlatList
+          data={data}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={styles.card} onPress={() => alert(`Clicked on ${item.name}`)}>
+              <Image source={{ uri: item.image }} style={styles.cardImage} />
+              <View style={styles.textContainer}>
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.date}>{item.date}</Text>
+                <Text style={styles.location}>{item.location}</Text>
+                <Text style={styles.description}>{item.description}</Text>
+              </View>
+            </TouchableOpacity>
+          )}
+          keyExtractor={item => item.id.toString()}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+
+      </ScrollView>
     </>
   );
 };
@@ -254,8 +227,8 @@ const styles = StyleSheet.create({
     color: "black",
   },
   containers: {
-    marginHorizontal: 2,
-    marginBottom: 10,
+    marginHorizontal: 5,
+    marginBottom: 30,
   },
   card: {
     flexDirection: 'row',
